@@ -1,3 +1,6 @@
+![Imagem](https://github.com/user-attachments/assets/4c771eff-a142-4b7d-97b2-9a08f00f642a)
+
+
 * Ana Paula Nascimento Silva  RM552513    2TDSR
 * Anna Beatriz Soares Camargo  RM99814   2TDSA
 * Calina Thalya Santana Da Silva RM552523   2TDSR
