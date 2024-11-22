@@ -12,10 +12,11 @@ namespace HydrioMind.Usuario.IoC
     {
         public static void Start(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationContext>(x => {
+            services.AddDbContext<ApplicationDbContext>(x => {
                 x.UseOracle(configuration["ConnectionStrings:Oracle"]);
             });
 
+            // Corrija o nome da interface e da classe aqui
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 
             services.AddTransient<IUsuarioApplicationService, UsuarioApplicationService>();

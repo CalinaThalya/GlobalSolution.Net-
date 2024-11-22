@@ -2,11 +2,27 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using HydrioMind.Usuario.Application;  
+using HydrioMind.Usuario.Domain.Interfaces;
+using HydrioMind.Usuario.Application.Services;
+using HydrioMind.Usuario.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using HydrioMind.Usuario.Data.AppData;  // Importar o namespace do ApplicationContext
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Registra o contexto do banco de dados (ApplicationContext)
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseOracle(builder.Configuration.GetConnectionString("Oracle")));
+
 // Adiciona os controladores
 builder.Services.AddControllers();
+
+// Registra o serviço IUsuarioApplicationService com a implementação correspondente
+builder.Services.AddScoped<IUsuarioApplicationService, UsuarioApplicationService>();
+
+// Registra o repositório IUsuarioRepository com a implementação correspondente
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 // Adiciona a exploração de endpoints para o Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -17,12 +33,12 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "API HydrioMind",
-        Version = "v1",  // Versão do Swagger
-        Description = "API para consumir dados do MongoDB",
+        Version = "v1", 
+        Description = "API para consumir dados do MongoDB",  // Ajuste conforme sua necessidade
         Contact = new OpenApiContact
         {
-            Name = "Seu Nome",
-            Email = "seunome@dominio.com"
+            Name = "Calina",
+            Email = "calinathalya77@gmail.com"
         }
     });
 });
@@ -32,11 +48,11 @@ var app = builder.Build();
 // Configuração do Swagger apenas para ambiente de desenvolvimento
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();  // Gera o arquivo Swagger
+    app.UseSwagger();  
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "API HydrioMind v1");  // Certifique-se de que o caminho para o arquivo JSON esteja correto
-        options.RoutePrefix = string.Empty;  // Swagger UI na raiz
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "API HydrioMind v1");
+        options.RoutePrefix = string.Empty;  
     });
 }
 
