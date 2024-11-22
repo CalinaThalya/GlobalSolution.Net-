@@ -39,6 +39,17 @@ HydrioMind é um aplicativo inteligente que não só ajuda a monitorar o consumo
 - Parcerias com Empresas de Sustentabilidade: Colaborar com empresas que desejam promover o uso eficiente de água e de IAs, ampliando a distribuição do app.
 - Plano de Assinatura e Ads: Implementar um modelo de assinatura para empresas ou usuários que desejam análises mais detalhadas e uma abordagem personalizada para reduzir o desperdício de água.
  
+# Como rodar o codigo
+
+git clone https://github.com/CalinaThalya/GlobalSolution.Net-
+
+cd GlobalSolution.Net-
+
+dotnet restore
+
+dotnet build
+
+dotnet run
 
 
 # Conclusão
