@@ -49,6 +49,8 @@ dotnet restore
 
 dotnet build
 
+cd HydrioMind.Usuario.API
+
 dotnet run
 
 
