@@ -41,17 +41,29 @@ HydrioMind é um aplicativo inteligente que não só ajuda a monitorar o consumo
  
 # Como rodar o codigo
 
-git clone https://github.com/CalinaThalya/GlobalSolution.Net-
+1. Clonar
 
-cd GlobalSolution.Net-
+       git clone https://github.com/CalinaThalya/GlobalSolution.Net-
 
-dotnet restore
+2. Entrar no projeto
 
-dotnet build
+       cd GlobalSolution.Net-
 
-cd HydrioMind.Usuario.API
+3. Restaurar
 
-dotnet run
+       dotnet restore
+4.  Construir   
+
+        dotnet build
+5. Entrar na pasta que executa    
+
+       cd HydrioMind.Usuario.API
+ 6.  Tem que esta no modo desenvolverdor, se não estiver e seu PC for linux
+
+    SPNETCORE_ENVIRONMENT=Development 
+ 7. Rodar o codigo.   
+
+        dotnet run
 
 
 # Conclusão
